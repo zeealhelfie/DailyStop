@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+/* Add styles for Banner component in App.css or a separate CSS file */
+.banner {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.greeting-widget {
+  flex: 1;
+}
+
+.weather-widget {
+  flex: 1;
+  text-align: right;
+}
