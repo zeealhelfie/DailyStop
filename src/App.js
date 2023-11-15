@@ -4,8 +4,7 @@ import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import TodoList from "./components/TodoList";
-import Banner from "./components/Banner"; // Import the Banner component
-
+import Banner from "./components/Banner";
 const App = () => {
   return (
     <Router>
@@ -15,7 +14,7 @@ const App = () => {
         <div className="auth-wrapper">
           <div className="auth-inner">
             <Routes>
-              <Route path="/" element={<Banner />} />{" "}
+              <Route path="/Banner" element={<Banner />} />{" "}
               {/* Display Banner component on root path */}
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />

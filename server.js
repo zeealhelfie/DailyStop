@@ -3,7 +3,7 @@ const cors = require("cors");
 const path = require("path");
 
 const app = express();
-const port = 3002;
+const port = 3000;
 
 app.use(express.json());
 app.use(cors());
@@ -17,11 +17,16 @@ app.get("/*", (req, res) => {
 
 // Route for handling signup
 app.post("/signup", (req, res) => {
-  const { firstName, lastName, email, password } = req.body;
+  try {
+    const { firstName, lastName, email, password } = req.body;
 
-  // Your signup logic here
+    // Your signup logic here
 
-  res.json({ message: "Signup successful" });
+    res.json({ message: "Signup successful" });
+  } catch (error) {
+    console.error("Error during signup:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 });
 
 // Route for handling login

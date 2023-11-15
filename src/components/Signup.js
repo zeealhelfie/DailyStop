@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Signup = () => {
@@ -9,7 +10,7 @@ const Signup = () => {
 
   const handleSignup = async () => {
     try {
-      const response = await axios.post("http://localhost:3002/signup", {
+      const response = await axios.post("http://localhost:3000/signup", {
         firstName,
         lastName,
         email,
@@ -17,13 +18,10 @@ const Signup = () => {
       });
 
       console.log(response.data.message);
-      // Optionally, redirect to the login page or handle the successful signup
+
       const { token } = response.data;
 
-      // Store the token in localStorage or httpOnly cookie
       localStorage.setItem("token", token);
-
-      // Redirect or update state to reflect user signup
     } catch (error) {
       console.error("Signup failed:", error.message);
     }
@@ -82,7 +80,7 @@ const Signup = () => {
         </button>
       </div>
       <p className="forgot-password text-right">
-        Already registered? <a href="/login">Sign in</a>
+        Already registered? <Link to="/login">login</Link>
       </p>
     </form>
   );
